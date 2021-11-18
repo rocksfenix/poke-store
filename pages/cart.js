@@ -76,7 +76,7 @@ export default function Cart() {
           data={data}
           columns={columns}
         />
-        {insuficient && <ErrorBox>Insuficient Balance</ErrorBox>}
+        {insuficient && <ErrorBox>Insufficient Balance</ErrorBox>}
         {error && <ErrorBox>{error}</ErrorBox>}
         
         <CheckoutBox>
