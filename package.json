@@ -29,5 +29,19 @@
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.1"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
+  "version": "1.0.0",
+  "main": "data.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rocksfenix/poke-store.git"
+  },
+  "keywords": [],
+  "author": "Gerardo Gallegos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rocksfenix/poke-store/issues"
+  },
+  "homepage": "https://next-poke-store.vercel.app/"
 }
