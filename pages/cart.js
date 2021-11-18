@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import cf from 'currency-formatter'
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
@@ -30,7 +31,7 @@ export default function Cart() {
   const [fetching, setFetching] = useState(false)
   const router = useRouter()
   const [error, setError] = useState(null)
-  const { cartItems, removeProduct, checkout } = useStore('MXN')
+  const { cartItems, removeProduct, checkout, balance } = useStore('MXN')
   
   const totalInLocalCurrency = cartItems.reduce((prev, next) => {
     if (typeof prev === 'number') {
@@ -64,6 +65,9 @@ export default function Cart() {
 
   const total = cf.format(totalInLocalCurrency, { code: 'MXN' })
 
+  const insuficient = balance < totalInLocalCurrency
+  console.log('balance', balance)
+
   return (
     <Layout>
       <Container>
@@ -72,20 +76,30 @@ export default function Cart() {
           data={data}
           columns={columns}
         />
-        <ErrorBox>Insuficient Balance</ErrorBox>
+        {insuficient && <ErrorBox>Insuficient Balance</ErrorBox>}
         {error && <ErrorBox>{error}</ErrorBox>}
+        
         <CheckoutBox>
           <h2>Total: {total} MXN</h2>
-          <CheckoutButton onClick={handleCheckout}>
-            {!fetching && (
-              <span>Procced To Checkout </span>
-            )}
-            {fetching && (
-              <span>
-                Processing <BeatLoader color='#FFF' size={13}/>
-              </span>
-            )}
-          </CheckoutButton>
+          {insuficient && (
+            <Link href='/balance'>
+              <CheckoutButton>
+                Apply Credit
+              </CheckoutButton>
+            </Link>
+          )}
+          {!insuficient && (
+            <CheckoutButton onClick={handleCheckout}>
+              {!fetching && (
+                <span>Procced To Checkout </span>
+              )}
+              {fetching && (
+                <span>
+                  Processing <BeatLoader color='#FFF' size={13}/>
+                </span>
+              )}
+            </CheckoutButton>
+          )}
         </CheckoutBox>
       </Container>
     </Layout>
