@@ -60,7 +60,7 @@ export default function Balance() {
   const currentBalance = currencyFormatter.format(balance, { code: 'MXN' })
 
   return (
-    <Layout>
+    <Layout title='Balance'>
       <Container>
         <Title>
           <FaMoneyBillAlt />

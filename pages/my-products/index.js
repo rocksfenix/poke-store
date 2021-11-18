@@ -14,7 +14,7 @@ export default function MyProducts() {
     })
 
   return (
-    <Layout>
+    <Layout title='My Products'>
       <h1><BiPurchaseTag />My Purchases</h1>
       <Grid>
         {producsts.map(pokemon => (

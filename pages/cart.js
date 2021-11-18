@@ -69,7 +69,7 @@ export default function Cart() {
   console.log('balance', balance)
 
   return (
-    <Layout>
+    <Layout title='Shopping Cart'>
       <Container>
         <h1>Shopping Cart</h1>
         <Table

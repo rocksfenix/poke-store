@@ -12,7 +12,7 @@ export default function MyProducts() {
   const product = cart.purchasedProducts[name] || {}
 
   return (
-    <Layout>
+    <Layout title={`${name} details`}>
       <Center>
         <h1><BiPurchaseTag />Pokemon: {name}</h1>
         <h3>Bought on {product?.purchasedDate}</h3>
