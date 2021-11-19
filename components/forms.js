@@ -51,7 +51,6 @@ export const Form = styled.form`
   flex-wrap: wrap;
   flex-direction: column;
 
-  
   @media(min-width: 976px) {
     flex-direction: row;
   }
